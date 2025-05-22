@@ -1,0 +1,281 @@
+:root {
+    --primary-color: #282828; /* Slightly darker primary */
+    --secondary-color: #3d3d3d; /* Existing card background, can be used elsewhere */
+    --accent-color: #00cc88; /* Slightly desaturated accent */
+    --text-color: #f0f0f0; /* Slightly off-white for better softness */
+    --transition: all 0.3s ease;
+    --subtle-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --hover-shadow: 0 10px 25px rgba(0, 204, 136, 0.3); /* Using new accent */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: radial-gradient(ellipse at center, var(--primary-color) 0%, #1a1a1a 100%);
+    color: var(--text-color);
+    line-height: 1.7; /* Increased for better readability */
+    font-weight: 300; /* Slightly lighter default font weight */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.glitch-title {
+    font-size: 4em;
+    font-weight: 800;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Increased letter spacing */
+    /* animation: glitch 2s infinite; */ /* Animation removed, will be hover based */
+    transition: var(--transition); /* Added for hover effect */
+}
+
+.glitch-title:hover {
+    animation: glitch-hover 0.5s ease-in-out;
+}
+
+@keyframes glitch-hover { /* More subtle hover glitch */
+    0% { text-shadow: none; transform: skewX(0deg); }
+    25% { text-shadow: 1px 1px 0px var(--accent-color), -1px -1px 0px #cc00cc; transform: skewX(-1deg); }
+    50% { text-shadow: -1px 1px 0px #00cccc, 1px -1px 0px var(--accent-color); transform: skewX(1deg); }
+    75% { text-shadow: 1px -1px 0px var(--accent-color), -1px 1px 0px #cc00cc; transform: skewX(-1deg); }
+    100% { text-shadow: none; transform: skewX(0deg); }
+}
+
+.subtitle {
+    color: var(--accent-color);
+    font-size: 1.4em; /* Slightly reduced size */
+    margin: 25px 0 30px; /* Adjusted margins */
+    font-weight: 400; /* Normal weight for subtitle */
+    opacity: 0.9; /* Slight opacity for subtlety */
+}
+
+/* Section Styling */
+section {
+    padding: 80px 0; /* Consistent vertical padding */
+}
+
+.section-title {
+    font-size: 2.8em; /* Increased size */
+    font-weight: 700; /* Bold weight */
+    margin-bottom: 60px; /* Increased margin */
+    text-align: center;
+    position: relative; /* For pseudo-element underline */
+    padding-bottom: 10px; /* Space for underline */
+    letter-spacing: 1px; /* Added letter spacing */
+}
+
+.section-title::after { /* Subtle underline accent */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    background: var(--secondary-color); /* Using variable */
+    padding: 30px;
+    border-radius: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid transparent; /* For hover effect */
+    box-shadow: var(--subtle-shadow); /* Added subtle shadow */
+}
+
+.skill-card:hover {
+    transform: translateY(-8px); /* Increased Y shift */
+    box-shadow: var(--hover-shadow); /* Using variable for hover shadow */
+    border-color: var(--accent-color); /* Border highlight on hover */
+}
+
+.skill-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.3em; /* Adjusted font size */
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--secondary-color); /* Using variable */
+    transition: var(--transition);
+    box-shadow: var(--subtle-shadow); /* Added subtle shadow */
+}
+
+.project-card:hover { /* CSS hover effect for project cards */
+    transform: scale(1.03); /* Slight scale up */
+    box-shadow: var(--hover-shadow); /* Using variable for hover shadow */
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-title {
+    font-size: 1.3em; /* Adjusted font size */
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    background: var(--secondary-color); /* Using variable */
+    padding: 70px 0; /* Adjusted padding */
+    margin-top: 80px;
+    border-top: 1px solid rgba(255,255,255,0.1); /* Subtle top border */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Increased gap */
+    margin-top: 30px;
+}
+
+.social-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1em; /* Adjusted font size */
+    transition: var(--transition);
+    padding: 10px 18px; /* Padding to make them more button-like */
+    border: 1px solid var(--accent-color); /* Border for button look */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: 500; /* Slightly bolder text */
+}
+
+.social-link:hover,
+.social-link:focus { /* Added focus for accessibility */
+    background-color: var(--accent-color);
+    color: var(--primary-color); /* Text color changes for contrast */
+    box-shadow: 0 0 15px rgba(0, 204, 136, 0.5); /* Glow effect */
+    transform: translateY(-3px); /* Slight lift */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glitch-title {
+        font-size: 2.8em; /* Adjusted for responsiveness */
+        letter-spacing: 2px; /* Adjusted for responsiveness */
+    }
+
+    .subtitle {
+        font-size: 1.1em; /* Adjusted for responsiveness */
+    }
+
+    section {
+        padding: 60px 0; /* Consistent padding */
+    }
+
+    .section-title {
+        font-size: 2.2em; /* Adjusted for responsiveness */
+        margin-bottom: 40px; /* Adjusted for responsiveness */
+    }
+
+    .skills-grid, .projects-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        gap: 20px;
+    }
+
+    .skill-card, .project-card {
+        padding: 25px; /* Adjust padding for smaller cards */
+    }
+}
+
+/* Scroll Animation Styles */
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Experience Section Styles */
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.experience-item {
+    background: var(--secondary-color); /* Using existing variable for card backgrounds */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--subtle-shadow);
+}
+
+.experience-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.4em; /* Consistent with other card titles */
+}
+
+.experience-company {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.experience-duration {
+    font-size: 0.9em;
+    color: rgba(240, 240, 240, 0.7); /* Muted text color */
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.experience-details {
+    list-style-position: inside;
+    padding-left: 0; /* Reset padding as list-style is inside */
+    margin-top: 15px;
+}
+
+.experience-details li {
+    margin-bottom: 8px;
+    line-height: 1.5; /* Improve readability of list items */
+}
