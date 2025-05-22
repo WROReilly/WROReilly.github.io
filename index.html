@@ -4,171 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>William R. O'Reilly</title>
-    <style>
-        :root {
-            --primary-color: #2d2d2d;
-            --accent-color: #00ff9d;
-            --text-color: #ffffff;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        body {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .glitch-title {
-            font-size: 4em;
-            font-weight: 800;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: glitch 2s infinite;
-        }
-
-        @keyframes glitch {
-            0% { text-shadow: none; }
-            20% { text-shadow: 2px 2px var(--accent-color); }
-            40% { text-shadow: -2px -2px #ff00ff; }
-            60% { text-shadow: 2px -2px #00ffff; }
-            80% { text-shadow: none; }
-        }
-
-        .subtitle {
-            color: var(--accent-color);
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .skill-card {
-            background: #3d3d3d;
-            padding: 30px;
-            border-radius: 10px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.2);
-        }
-
-        .skill-card h3 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #3d3d3d;
-            transition: var(--transition);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-            background: #3d3d3d;
-            padding: 60px 0;
-            margin-top: 80px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .social-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            color: var(--accent-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .glitch-title {
-                font-size: 3em;
-            }
-
-            .subtitle {
-                font-size: 1.2em;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -179,26 +15,53 @@
     </header>
 
     <section id="about" class="container">
-        <h2 class="section-title">About Me</h2>
-        <p>I'm a creative technologist passionate about the intersection of design and engineering. With a focus on media design, artificial intelligence and software development, I explore the boundaries of digital creativity while diving deep into system internals through reverse engineering.</p>
+        <h2 class="section-title fade-in-on-scroll">About Me</h2>
+        <p class="fade-in-on-scroll">I'm a creative technologist passionate about the intersection of design and engineering. With a focus on media design, artificial intelligence and software development, I explore the boundaries of digital creativity while diving deep into system internals through reverse engineering.</p>
+    </section>
+
+    <section id="experience" class="container fade-in-on-scroll">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-item">
+                <h3>Lead AI Researcher</h3>
+                <p class="experience-company">Innovatech Solutions</p>
+                <p class="experience-duration">Jan 2022 – Present</p>
+                <ul class="experience-details">
+                    <li>Led a team in developing cutting-edge AI models.</li>
+                    <li>Published 3 papers in renowned AI conferences.</li>
+                    <li>Collaborated with cross-functional teams on product integration.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Software Development Engineer</h3>
+                <p class="experience-company">Future Systems Inc.</p>
+                <p class="experience-duration">Jun 2020 – Dec 2021</p>
+                <ul class="experience-details">
+                    <li>Developed and maintained scalable web applications.</li>
+                    <li>Contributed to the full software development lifecycle.</li>
+                    <li>Implemented new features based on user feedback.</li>
+                </ul>
+            </div>
+            <!-- Add more items as needed -->
+        </div>
     </section>
 
     <section id="skills" class="container">
-        <h2 class="section-title">Skill Set</h2>
+        <h2 class="section-title fade-in-on-scroll">Skill Set</h2>
         <div class="skills-grid">
-            <div class="skill-card">
+            <div class="skill-card fade-in-on-scroll">
                 <h3>Media Design</h3>
                 <p>UI/UX Design<br>Motion Graphics<br>Digital Art<br>Visual Communication</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card fade-in-on-scroll">
                 <h3>Development</h3>
                 <p>Frontend Development<br>All web<br>Python<br>C++<br>Assembly</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card fade-in-on-scroll">
                 <h3>AI</h3>
                 <p>Prompt Engineer<br>GPT Creator<br>AI Engineer</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card fade-in-on-scroll">
                 <h3>Reverse Engineering</h3>
                 <p>Binary Analysis<br>Debugging<br>System Architecture<br>Security Research</p>
             </div>
@@ -206,24 +69,24 @@
     </section>
 
     <section id="projects" class="container">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2 class="section-title fade-in-on-scroll">Featured Projects</h2>
         <div class="projects-grid">
-            <div class="project-card">
-                <img src="/api/placeholder/400/320" alt="Project 1">
+            <div class="project-card fade-in-on-scroll">
+                <img src="images/project1.png" alt="Project 1">
                 <div class="project-info">
                     <h3 class="project-title">Design System</h3>
                     <p>A comprehensive design system for cross-platform applications</p>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="/api/placeholder/400/320" alt="Project 2">
+            <div class="project-card fade-in-on-scroll">
+                <img src="images/project2.png" alt="Project 2">
                 <div class="project-info">
                     <h3 class="project-title">Binary Analysis Tool</h3>
                     <p>Custom-built tool for automated binary analysis</p>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="/api/placeholder/400/320" alt="Project 3">
+            <div class="project-card fade-in-on-scroll">
+                <img src="images/project3.png" alt="Project 3">
                 <div class="project-info">
                     <h3 class="project-title">Interactive Installation</h3>
                     <p>Media art installation using computer vision</p>
@@ -233,7 +96,7 @@
     </section>
 
     <section class="contact-section">
-        <div class="container">
+        <div class="container fade-in-on-scroll">
             <h2 class="section-title">Let's Connect</h2>
             <p>Interested in collaboration? Let's create something amazing together.</p>
             <div class="social-links">
@@ -245,26 +108,6 @@
         </div>
     </section>
 
-    <script>
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add hover effect for project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseover', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            card.addEventListener('mouseout', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
