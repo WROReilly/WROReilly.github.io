@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <!-- SEO Tags -->
+  <meta name="keywords" content="developer, engineer, electrical engineer, work, employment, company">
+  <meta name="description" content="WROReilly.com - Employment, developer, electrical engineer, and company site.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="WROReilly.com - will@wroreilly.com">
+  <!-- Open Graph for social preview -->
+  <meta property="og:title" content="WROReilly.com">
+  <meta property="og:description" content="developer, engineer, electrical engineer, work, employment, company">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wroreilly.com">
+  <meta property="og:image" content="/favicon.png">
+
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Inter', Arial, Helvetica, sans-serif; min-height: 100vh; width: 100vw; box-sizing: border-box; overflow: hidden; }
+    .header { position: absolute; top: 2vw; left: 2vw; font-size: 1.8vw; color: #fff; z-index: 10; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; }
+    .center-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vw; display: flex; align-items: center; justify-content: center; height: 40vh; }
+    .countdown { font-size: 5vw; color: #fff; text-align: center; font-weight: bold; width: 100%; max-width: 90vw; line-height: 1.1; letter-spacing: 0.08vw; user-select: none; font-variant-numeric: tabular-nums; }
+    @media (max-width: 800px) { .header { font-size: 4vw; } .countdown { font-size: 14vw; } }
+    @media (max-width: 400px) { .header { font-size: 5vw; } .countdown { font-size: 18vw; } }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-P626P4SJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Set up collection of referrer/user data as events
+    gtag('config', 'GTM-P626P4SJ', {
+      'anonymize_ip': false,
+      'allow_google_signals': true,
+      'link_attribution': true
+    });
+    // Enhanced referrer, landing page tracking
+    gtag('event', 'page_view', {
+      'referrer': document.referrer,
+      'user_agent': navigator.userAgent,
+      'language': navigator.language,
+      'platform': navigator.platform,
+      'screen_resolution': `${window.screen.width}x${window.screen.height}`,
+      'url': window.location.href,
+      'title': document.title
+    });
+  </script>
+  <!-- Microsoft Clarity for session recording & heatmaps -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "u1jmzn64rr");
+</script>
+  <!-- End Analytics -->
+</head>
+<body>
+  <div class="header">WROReilly.com - will@wroreilly.com</div>
+  <div class="center-container">
+    <div class="countdown" id="countdown">Loading...</div>
+  </div>
+  <script>
+    // UTC reference date, deployment time for the countdown timer
+    const referenceUTC = new Date(Date.UTC(2025, 10, 5, 21, 29, 55));
+    const countdownSeconds = 18*24*60*60 + 11*60*60 + 42*60 + 23;
+    const targetUTC_ms = referenceUTC.getTime() + countdownSeconds*1000;
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+    function updateCountdown() {
+      const now = new Date();
+      const nowUTC_ms = now.getTime() + (now.getTimezoneOffset() * 60000);
+      let remaining_ms = targetUTC_ms - nowUTC_ms;
+      if (remaining_ms <= 0) {
+        document.getElementById('countdown').textContent = '00 days 00 hours 00 minutes 00 seconds';
+        return;
+      }
+      let total = Math.floor(remaining_ms / 1000);
+      const days = Math.floor(total / (24*60*60));
+      total %= (24*60*60);
+      const hours = Math.floor(total / (60*60));
+      total %= (60*60);
+      const minutes = Math.floor(total / 60);
+      const seconds = total % 60;
+      document.getElementById('countdown').textContent =
+        pad(days) + ' days ' +
+        pad(hours) + ' hours ' +
+        pad(minutes) + ' minutes ' +
+        pad(seconds) + ' seconds';
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 500);
+  </script>
+</body>
+</html>

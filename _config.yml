@@ -1,0 +1,6 @@
+title: WROReilly.com
+email: will@wroreilly.com
+baseurl: ""
+url: "https://wroreilly.com"
+markdown: kramdown
+theme: minima
